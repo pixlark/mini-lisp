@@ -1,0 +1,44 @@
+# basic ideas
+
+Primitive operations:
+ - quote
+ - atom (predicate)
+ - eq
+   - compares atoms and empty lists. doesnt traverse
+ - car
+ - cdr
+ - cons
+ - cond
+
+note that quote and cond are the only primitives that 
+don't fully evaluate their arguments
+
+with these primitive operations only, we can define an "eval" function
+in this version of lisp that evaluates a "full" version of lisp
+
+this eval function defines:
+ - lambda
+ - label
+   - `(label f (lambda (p1 ... pn) e))`
+     will replace every occurence of f within e with the lambda itself
+
+ - lambda is another primitive "operation" that really just 
+   constructs function values
+ - label is another primitive operator that enables recursion:
+
+
+
+
+
+
+
+
+
+A Cons is made up of:
+ car :: which can be one of: symbol, another cons, empty list.
+  union {
+      const char* symbol;
+      Cons* cons; // null: empty list
+  };
+ cdr :: which can be one of: another cons, empty list.
+  *cdr = NULL (empty list) | &some_other_cons;
